@@ -3,6 +3,18 @@ const { delayPromise } = require('../../helpers/utils');
 const { execCommand } = require('cli-testlab');
 
 describe('cli', () => {
+  describe('meta commands', function () {
+    this.timeout(5000);
+
+    it('prints the current version', function () {
+      const version = require('../../../package.json').version;
+
+      return execCommand('node bin/forever --version', {
+        expectedOutput: [`v${version}`]
+      });
+    });
+  });
+
   describe('columns', function () {
     this.timeout(5000);
     it('manages columns successfully', function () {
@@ -27,6 +39,11 @@ describe('cli', () => {
                 {
                   expectedOutput: ['warn', 'uptime', 'already exists in forever']
                 });
+          })
+          .then(function () {
+            return execCommand('node bin/forever columns set uid script logfile', {
+              expectedOutput: ['Setting columns:', 'uid script logfile']
+            });
           });
     });
   });

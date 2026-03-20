@@ -19,12 +19,10 @@
   ],
   "dependencies": {
     "async": "^1.5.2",
-    "cliff": "^0.1.10",
     "clone": "^2.1.2",
     "@colors/colors": "1.5.0",
     "configstore": "4.0.0",
     "eventemitter2": "6.4.4",
-    "flatiron": "~0.4.3",
     "forever-monitor": "^3.0.3",
     "mkdirp": "^0.5.5",
     "nssocket": "^0.6.0",
